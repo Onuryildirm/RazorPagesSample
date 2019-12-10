@@ -1,0 +1,36 @@
+﻿@page "{id:int}"
+@model RazorPagesSample.EditModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+    <input asp-for="Customer.Id" type="hidden" />
+
+    <div>
+        <label asp-for="Customer.Name"></label>
+        <input asp-for="Customer.Name" />
+        <span asp-validation-for="Customer.Name"></span>
+        <input type="submit" class="btn btn-primary" />
+
+    </div>
+
+</form>
+
+@*Client Side Validation 4 yöntemi aşağıdadır*@
+@section scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+    @*@await Html.PartialAsync("_ValidationScriptsPartial").Result*@
+
+    @*@{ await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }*@
+
+    @*<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    *@
+}
